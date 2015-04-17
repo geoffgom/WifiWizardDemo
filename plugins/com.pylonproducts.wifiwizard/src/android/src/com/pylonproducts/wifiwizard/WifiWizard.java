@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiEnterpriseConfig;
+import android.net.wifi.ScanResult;
 import android.content.Context;
 import android.util.Log;
 
@@ -270,13 +271,25 @@ public class WifiWizard extends CordovaPlugin {
 	 */
 	private boolean listNetworks(CallbackContext callbackContext) {
 		Log.d(TAG, "WifiWizard: listNetworks entered.");
-		List<WifiConfiguration> wifiList = wifiManager.getConfiguredNetworks();
+
+		wifiManager.startScan();
+		// get list of the results in object format ( like an array )
+		List<ScanResult> results = wifiManager.getScanResults();
+
+		JSONArray returnList = new JSONArray();
+
+		// loop that goes through list
+		for (ScanResult result : results) {
+			returnList.put(result.SSID + " -> " + result.level + " " + result.capabilities);
+		}
+
+/*		List<WifiConfiguration> wifiList = wifiManager.getConfiguredNetworks();
 		
 		JSONArray returnList = new JSONArray();
 		
 		for (WifiConfiguration wifi : wifiList) {
-			returnList.put(wifi.SSID);
-		}
+			returnList.put(wifi.SSID+" -> "+wifi.);
+		}*/
 		
 		callbackContext.success(returnList);
 		return true;

@@ -1,2 +1,2 @@
-c:\Users\matt_admin\Projects\WifiWizardDemo\platforms\android\ant-build\AndroidManifest.xml : \
-c:\Users\matt_admin\Projects\WifiWizardDemo\platforms\android\AndroidManifest.xml \
+/Users/geoff/idealprogramming/projects/Mobile/IdealSystems/POCs/WifiWizardDemo/platforms/android/ant-build/AndroidManifest.xml : \
+/Users/geoff/idealprogramming/projects/Mobile/IdealSystems/POCs/WifiWizardDemo/platforms/android/AndroidManifest.xml \

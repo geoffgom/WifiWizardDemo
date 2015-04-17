@@ -35,7 +35,7 @@
 			var newP = document.createElement("p");
 			var node = document.createTextNode(message);
 			var status = document.getElementById("status");
-			newP.appendChild(node);
+			newP.innerHTML=message;
 			// document.getElementById("status").appendChild(newP);
 			status.insertBefore(newP, status.firstChild);
 		}	
@@ -47,9 +47,7 @@
 				var pass = document.getElementById("password").value;
 				
 				var wifiConfiguration = WifiWizard.formatWifiConfig(ssid, pass, 'WPA');
-				
-				
-				
+								
 				WifiWizard.addNetwork(wifiConfiguration, addToStatus, addToStatus);
 				addToStatus(wifiConfiguration.SSID + " " + wifiConfiguration.Password);
 				addToStatus("Adding Network...");
@@ -62,7 +60,7 @@
 			},
 			
 			handleList: function(networkList) {
-				addToStatus(networkList.join(" "));
+				addToStatus(networkList.join("<br/>"));
 			},
 			
 			listNetworks: function() {

@@ -1,3 +1,3 @@
 # view AndroidManifest.xml #generated:6
--keep class com.pylonproducts.wifitest.WifiWizardTest { <init>(...); }
+-keep class be.idealsystems.wifitest.MainActivity { <init>(...); }
 
